@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import NewsCard from "./components/NewsCard/NewsCard";
 import Layout from "./hoc/Layout/Layout";
+import Spinner from "./components/Spinner/Spinner";
 
 import axios from "axios";
 
@@ -11,6 +12,7 @@ function App() {
 	const [articles, setArticles] = useState([]);
 	const [currentCategory, setCurrentCategory] = useState("top-headlines");
 	const [showSideDrawer, setShowSideDrawer] = useState(false);
+	const [showSpinner, setShowSpinner] = useState(true);
 
 	const allCategories = [
 		"Top-Headlines",
@@ -24,19 +26,23 @@ function App() {
 	];
 
 	let data = [];
+	let spinner = <Spinner />;
 
 	const getTopHeadlines = () => {
 		axios.get(`${process.env.REACT_APP_BASE_URL}`).then(resp => {
 			data = [];
 			setArticles([]);
 			setArticles(resp.data.data);
+			setShowSpinner(false);
 		});
 	};
 
 	useEffect(getTopHeadlines, []);
 
 	useEffect(() => {
-		if (currentCategory === "top-headlines") return getTopHeadlines;
+		if (currentCategory === "top-headlines") return getTopHeadlines();
+		setShowSpinner(true);
+		console.log("in 2nd use effecttttt");
 		axios
 			.post(`${process.env.REACT_APP_BASE_URL}`, {
 				category: currentCategory,
@@ -46,6 +52,7 @@ function App() {
 				data = [];
 				setArticles([]);
 				setArticles(resp.data.data);
+				setShowSpinner(false);
 			});
 	}, [currentCategory]);
 
@@ -87,7 +94,9 @@ function App() {
 				closeSideDrawer={sideDrawerClosedHandler}
 				sideDrawerHandler={sideDrawerToggleHandler}>
 				<span className={style.Category}>{currentCategory}:</span>
-				<div className={style.CardStack}>{data}</div>
+				<div className={style.CardStack}>
+					{showSpinner ? spinner : data}
+				</div>
 			</Layout>
 		</React.Fragment>
 	);
