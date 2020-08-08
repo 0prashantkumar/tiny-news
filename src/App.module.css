@@ -16,14 +16,13 @@
 }
 
 .Category {
-	text-decoration: underline;
 	text-transform: uppercase;
 	position: relative;
 	display: block;
 	margin-left: 20px;
-	border-radius: 3px;
 	margin-bottom: 20px;
 	font-weight: 600;
+	font-family: "Courier Prime", monospace;
 	z-index: 1;
 }
 

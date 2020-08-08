@@ -54,6 +54,8 @@
 }
 
 .Title {
+	font-family: "Courier Prime", monospace;
+	font-weight: 600;
 	margin-top: 5px;
 	font-size: 22px;
 	line-height: 27px;
@@ -61,6 +63,7 @@
 }
 
 .Content {
+	font-family: "Poppins", sans-serif;
 	top: 115px;
 	font-weight: 300;
 	font-size: 16px;
@@ -77,6 +80,7 @@
 }
 
 .Footer .ReadMore {
+	font-family: "Poppins", sans-serif;
 	position: absolute;
 	left: 0;
 	top: 2px;

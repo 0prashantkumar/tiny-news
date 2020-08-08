@@ -1,6 +1,7 @@
 import React from "react";
 
 import style from "./NewsCard.module.css";
+import defaultImg from "../../assets/images/default.png";
 
 function NewsCard(props) {
 	return (
@@ -8,7 +9,10 @@ function NewsCard(props) {
 			<div
 				className={style.Image}
 				style={{
-					background: `url(${props.imgUrl})`,
+					background: `url(${
+						props.imgUrl ? props.imgUrl : defaultImg
+					})`,
+					backgroundPosition: "center",
 				}}></div>
 			<div className={[style.Title, style.NewsBox].join(" ")}>
 				<span>{props.title}</span>

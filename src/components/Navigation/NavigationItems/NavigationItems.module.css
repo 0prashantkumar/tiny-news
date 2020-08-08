@@ -19,7 +19,7 @@
 	appearance: none;
 	border: none;
 	background: transparent;
-	font: inherit;
+	font-family: "Courier Prime", monospace;
 	color: #00adb5;
 	font-size: 18px;
 }

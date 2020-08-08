@@ -50,9 +50,10 @@ function App() {
 				pageSize: 100,
 			})
 			.then(resp => {
+				// eslint-disable-next-line
+				data = [];
 				setArticles([]);
 				setArticles(resp.articles);
-				data = [];
 			});
 	}, [currentCategory]);
 
@@ -70,11 +71,14 @@ function App() {
 	};
 
 	articles.forEach((article, index) => {
+		let arr = article.title.split("-");
+		arr.pop();
+		let title = arr.join("-");
 		data.push(
 			<NewsCard
 				key={index}
 				imgUrl={article.urlToImage}
-				title={article.title}
+				title={title}
 				desc={article.description}
 				url={article.url}
 				author={article.author}
