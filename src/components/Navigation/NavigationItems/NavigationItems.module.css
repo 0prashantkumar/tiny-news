@@ -1,0 +1,29 @@
+.NavigationItems {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	height: 100%;
+}
+
+.NavigationItem {
+	margin: 10px 0;
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+}
+
+.NavigationItem button {
+	appearance: none;
+	border: none;
+	background: transparent;
+	font: inherit;
+	color: #40a4c8;
+	font-size: 18px;
+}
+
+.NavigationItem button:hover {
+	color: #255d72;
+}
