@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import NewsCard from "./components/NewsCard/NewsCard";
 import Layout from "./hoc/Layout/Layout";
 
-// import ARTICLE from "./default";
-import newsApi from "./utils/NewsApi";
+import axios from "axios";
 
 import style from "./App.module.css";
 
@@ -27,33 +26,26 @@ function App() {
 	let data = [];
 
 	const getTopHeadlines = () => {
-		newsApi.v2
-			.topHeadlines({
-				country: "in",
-				pageSize: 100,
-			})
-			.then(resp => {
-				data = [];
-				setArticles([]);
-				setArticles(resp.articles);
-			});
+		axios.get(`${process.env.REACT_APP_BASE_URL}`).then(resp => {
+			data = [];
+			setArticles([]);
+			setArticles(resp.data.data);
+		});
 	};
 
 	useEffect(getTopHeadlines, []);
 
 	useEffect(() => {
 		if (currentCategory === "top-headlines") return getTopHeadlines;
-		newsApi.v2
-			.topHeadlines({
-				country: "in",
+		axios
+			.post(`${process.env.REACT_APP_BASE_URL}`, {
 				category: currentCategory,
-				pageSize: 100,
 			})
 			.then(resp => {
 				// eslint-disable-next-line
 				data = [];
 				setArticles([]);
-				setArticles(resp.articles);
+				setArticles(resp.data.data);
 			});
 	}, [currentCategory]);
 
