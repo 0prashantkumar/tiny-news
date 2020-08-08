@@ -13,6 +13,8 @@ function NewsCard(props) {
 						props.imgUrl ? props.imgUrl : defaultImg
 					})`,
 					backgroundPosition: "center",
+					backgroundSize: "contain",
+					backgroundRepeat: "no-repeat",
 				}}></div>
 			<div className={[style.Title, style.NewsBox].join(" ")}>
 				<span>{props.title}</span>
