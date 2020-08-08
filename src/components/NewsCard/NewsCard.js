@@ -26,7 +26,7 @@ function NewsCard(props) {
 			</div>
 			<div className={[style.Footer, style.NewsBox].join(" ")}>
 				<div className={style.ReadMore}>
-					<a href={props.url}>Read full article</a>
+					<a href={props.url}>Read full article on {props.source}</a>
 				</div>
 			</div>
 		</div>

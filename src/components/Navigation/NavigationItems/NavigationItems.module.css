@@ -20,10 +20,10 @@
 	border: none;
 	background: transparent;
 	font: inherit;
-	color: #40a4c8;
+	color: #00adb5;
 	font-size: 18px;
 }
 
 .NavigationItem button:hover {
-	color: #255d72;
+	color: #393e46;
 }

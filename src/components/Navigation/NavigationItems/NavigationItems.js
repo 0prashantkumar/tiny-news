@@ -13,14 +13,7 @@ const navigationItems = props => {
 			</li>
 		);
 	});
-	return (
-		<ul className={classes.NavigationItems}>
-			<button onClick={props.setCategory.bind(this, "google10")}>
-				Layout
-			</button>
-			{list}
-		</ul>
-	);
+	return <ul className={classes.NavigationItems}>{list}</ul>;
 };
 
 export default navigationItems;
