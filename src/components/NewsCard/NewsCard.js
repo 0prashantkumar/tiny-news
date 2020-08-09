@@ -17,7 +17,7 @@ function NewsCard(props) {
 					backgroundRepeat: "no-repeat",
 				}}></div>
 			<div className={[style.Title, style.NewsBox].join(" ")}>
-				<span>{props.title}</span>
+				<span className={style.Shadow}>{props.title}</span>
 				<div className={[style.Author, style.AuthorInTitle].join(" ")}>
 					<span>{props.author}</span>
 				</div>
