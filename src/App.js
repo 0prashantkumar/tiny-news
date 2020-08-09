@@ -37,12 +37,9 @@ function App() {
 		});
 	};
 
-	useEffect(getTopHeadlines, []);
-
 	useEffect(() => {
 		if (currentCategory === "top-headlines") return getTopHeadlines();
 		setShowSpinner(true);
-		console.log("in 2nd use effecttttt");
 		axios
 			.post(`${process.env.REACT_APP_BASE_URL}`, {
 				category: currentCategory,
